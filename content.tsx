@@ -5,8 +5,6 @@ import Purpose from "./components/Purpose";
 import { Storage } from "@plasmohq/storage";
 import styleText from "data-text:./content-style.scss";
 
-// export const getOverlayAnchor: PlasmoGetOverlayAnchor = async () => document.documentElement;
-
 export const config: PlasmoContentScript = {
   matches: ["<all_urls>"]
 };
@@ -53,35 +51,30 @@ const storage = new Storage();
 
 storage.watch({
   "tabChangeOccurred": (c) => {
-    bannerPosition = null
+    bannerPosition = null;
   },
 })
 
 window.onresize = () => {
-  bannerPosition = null
+  bannerPosition = null;
 }
 
 document.onmousemove = (event) => {
-  /// Get banner position if something has occurred that can change its position
-  /// (e.g. tab change, window resize, banner position change)
-  
-  if (!bannerPosition){
+  // Get banner position if something has occurred that can change its position
+  // (e.g. tab change, window resize, banner position change)
+  if (!bannerPosition && !mouseOnBanner){ // If mouse is on banner, (banner display set to none), rectangle boundary will be set as 0 by 0
     banner = getBannerElement();
     let bannerRect = banner?.getBoundingClientRect();
-    
-    if (!bannerRect)
-      return;
 
     bannerPosition = {
-      left: bannerRect.left,
-      top: bannerRect.top,
-      right: bannerRect.right,
-      bottom: bannerRect.bottom,
+      left: bannerRect?.left,
+      top: bannerRect?.top,
+      right: bannerRect?.right,
+      bottom: bannerRect?.bottom,
     };
   }
 
-  /// Checking if mouse is on banner to determine if it should be displayed
-
+  // Checking if mouse is on banner to determine if it should be displayed
   let x = event.clientX;
   let y = event.clientY;
 
@@ -90,10 +83,8 @@ document.onmousemove = (event) => {
       banner.style.display = "none"; 
       mouseOnBanner = true;
     }
-  } else {
-    if (mouseOnBanner == true){
+  } else if (mouseOnBanner == true){
       banner.style.display = "block";
       mouseOnBanner = false;
-    }
   }
 }
