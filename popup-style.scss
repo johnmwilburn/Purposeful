@@ -42,10 +42,10 @@ body{
                 @extend %columns;
                 .timer{
                     // padding: 0.125rem;
-                    padding: 0.25;
-                    font-size: 1rem;
-                    border-color: black;
-                    border-style: solid;
+                    padding: 0.35;
+                    border: 0.075em solid #000;
+                    padding: 0.1em;
+                    font-size: 1.65em;
                     letter-spacing: 0.1rem;
                 }
             }

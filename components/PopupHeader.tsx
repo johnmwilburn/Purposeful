@@ -6,7 +6,9 @@ function PopupHeader ()  {
     return (
         <div className="popup-header">
           <div className="left">
-            <TimerControls/>
+            <div className="settings"> 
+              <SettingsIcon/>
+            </div>
           </div>
 
           <div className="center">
@@ -14,9 +16,7 @@ function PopupHeader ()  {
           </div>
 
           <div className="right">
-            <div className="settings"> 
-              <SettingsIcon/>
-            </div>
+            <TimerControls/>
           </div>
         </div>
     )

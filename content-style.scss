@@ -7,9 +7,8 @@
     .purposeful-banner{
         margin-left: auto;
         margin-right: auto;
-        width: 80%;
-        height: 6em;
-        background-color: rgba(64, 53, 53, 0.5);
+        width: -webkit-fill-available;
+        height: 6.25em;
         pointer-events: none;
         %element {
             min-width: 3em;
@@ -17,16 +16,15 @@
             margin-right: auto;
             margin-top: 0.25em;
             border-radius: 0.175em;
-
-            background-color: grey;
-            font-size: 1.5em;
+            background-color: white;
             font-family: 'Roboto', sans-serif;
-            color: white;
+            color: #1a0dab;
             text-align: center;
         }
         .timer-container{
             display: flex;
             .timer{
+                font-size: 1.5em;
                 width: 17%;
                 @extend %element;
             }
@@ -34,8 +32,11 @@
         .purpose-container{
             display: flex;
             .purpose{
-                width: 80%;
+                font-size: 1.25em;
                 @extend %element;
+                display: inline-block;
+                padding: 0 5px 0 5px;
+                max-width: 50%;
             }
         }
     }

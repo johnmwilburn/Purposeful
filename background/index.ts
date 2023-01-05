@@ -41,7 +41,7 @@ storage.watch({
         }
         storage.set("timerSeconds", timerSeconds - 1)
 
-        if (timerSeconds % 15 == 0){
+        if (timerSeconds % 30 == 0){
           console.log("Restarting service worker")
           storage.set("timerState", "stopped")
           storage.set("timerState", "running")

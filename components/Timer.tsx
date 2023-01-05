@@ -2,8 +2,8 @@ import { useStorage } from "@plasmohq/storage/hook";
 import { useEffect } from "react";
 
 function Timer () { 
-
-    const [timerSeconds, setTimerSeconds] = useStorage("timerSeconds");
+    const [timerSeconds, setTimerSeconds] = useStorage("timerSeconds", (v) => v === undefined ? 3600: v);
+    
     
     const getTimeDisplayString = () => {
         let timerMinutes = Math.floor(timerSeconds / 60).toString().padStart(2, "0");
@@ -14,10 +14,10 @@ function Timer () {
       
     let TimerDisplay = getTimeDisplayString();
     useEffect(() => {TimerDisplay = getTimeDisplayString()}, [timerSeconds]);
-  
+    
     return (
-        <div className="timer">
-            {TimerDisplay}
+        <div className="timer" >            
+            {TimerDisplay}  
         </div>
     )
 }
