@@ -11,6 +11,13 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.0.0",
+    "@plasmohq/storage": "^0.13.1",
     "plasmo": "0.60.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"

@@ -1,0 +1,42 @@
+.purposeful-wrapper{
+    position: fixed;
+    width: -webkit-fill-available;
+    pointer-events: none;
+    font-family: 'Roboto', sans-serif;
+    
+    .purposeful-banner{
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        height: 6em;
+        background-color: rgba(64, 53, 53, 0.5);
+        pointer-events: none;
+        %element {
+            min-width: 3em;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 0.25em;
+            border-radius: 0.175em;
+
+            background-color: grey;
+            font-size: 1.5em;
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            text-align: center;
+        }
+        .timer-container{
+            display: flex;
+            .timer{
+                width: 17%;
+                @extend %element;
+            }
+        }
+        .purpose-container{
+            display: flex;
+            .purpose{
+                width: 80%;
+                @extend %element;
+            }
+        }
+    }
+}
